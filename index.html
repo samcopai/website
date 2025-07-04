@@ -1,9 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Samcop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samcop - AI for the Enterprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Tokyo Night Theme Colors */
+            --bg-primary: #1a1b26;
+            --bg-secondary: #16161e;
+            --bg-tertiary: #24283b;
+            --fg-primary: #c0caf5;
+            --fg-secondary: #9aa5ce;
+            --fg-muted: #565f89;
+            --accent-blue: #7aa2f7;
+            --accent-cyan: #7dcfff;
+            --accent-green: #9ece6a;
+            --accent-purple: #bb9af7;
+            --accent-red: #f7768e;
+            --accent-orange: #ff9e64;
+            --accent-yellow: #e0af68;
+            --border: #414868;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Caskaydia Cove', monospace;
+            background-color: var(--bg-primary);
+            color: var(--fg-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .vim-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--border);
+            margin: 8px;
+            background-color: var(--bg-secondary);
+        }
+
+        .vim-header {
+            background-color: var(--bg-tertiary);
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--fg-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vim-tabs {
+            display: flex;
+            gap: 2px;
+        }
+
+        .vim-tab {
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            padding: 4px 12px;
+            font-weight: 500;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .vim-info {
+            color: var(--fg-muted);
+            font-size: 12px;
+        }
+
+        .vim-content {
+            flex: 1;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .ascii-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(12px, 2.5vw, 18px);
+            line-height: 1;
+            color: var(--accent-cyan);
+            margin-bottom: 32px;
+            white-space: pre;
+            text-shadow: 0 0 10px rgba(125, 207, 255, 0.3);
+        }
+
+        .slogan {
+            font-family: 'JetBrains Mono', 'Caskaydia Cove', monospace;
+            font-size: clamp(18px, 4vw, 32px);
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 48px;
+            text-shadow: 0 0 15px rgba(158, 206, 106, 0.2);
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: var(--bg-primary);
+            padding: 12px 32px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(187, 154, 247, 0.2);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(187, 154, 247, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .vim-statusline {
+            background-color: var(--bg-tertiary);
+            border-top: 1px solid var(--border);
+            padding: 8px 16px;
+            font-size: 12px;
+            color: var(--fg-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mode-indicator {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: var(--fg-muted);
+            opacity: 0.7;
+        }
+
+        .line-numbers {
+            position: absolute;
+            left: 16px;
+            top: 32px;
+            color: var(--fg-muted);
+            font-size: 12px;
+            line-height: 1.5;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .vim-container {
+                margin: 4px;
+            }
+            
+            .vim-content {
+                padding: 16px;
+            }
+            
+            .ascii-logo {
+                font-size: 10px;
+                margin-bottom: 24px;
+            }
+            
+            .slogan {
+                font-size: 16px;
+                margin-bottom: 32px;
+            }
+            
+            .contact-button {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Samcop</h1>
+    <div class="vim-container">
+        <div class="vim-header">
+            <div class="vim-tabs">
+                <div class="vim-tab">index.html</div>
+            </div>
+            <div class="vim-info">~/samcop</div>
+        </div>
+        
+        <div class="vim-content">
+            <div class="line-numbers">
+                1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15
+            </div>
+            
+            <div class="ascii-logo">
+ ███████╗ █████╗ ███╗   ███╗ ██████╗ ██████╗ ██████╗ 
+ ██╔════╝██╔══██╗████╗ ████║██╔════╝██╔═══██╗██╔══██╗
+ ███████╗███████║██╔████╔██║██║     ██║   ██║██████╔╝
+ ╚════██║██╔══██║██║╚██╔╝██║██║     ██║   ██║██╔═══╝ 
+ ███████║██║  ██║██║ ╚═╝ ██║╚██████╗╚██████╔╝██║     
+ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═╝     </div>
+            
+            <div class="slogan">AI for the Enterprise</div>
+            
+            <a href="mailto:info@samcop.com" class="contact-button">
+                :message
+            </a>
+            
+            <div class="copyright">
+                © 2025 Samcop. All rights reserved.
+            </div>
+        </div>
+        
+        <div class="vim-statusline">
+            <div>
+                <span class="mode-indicator">-- NORMAL --</span>
+                <span style="margin-left: 16px;">1,1</span>
+            </div>
+            <div>utf-8[unix]</div>
+        </div>
+    </div>
 </body>
 </html>

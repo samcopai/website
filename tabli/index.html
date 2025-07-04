@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabli - Simple, Affordable Restaurant Reservations</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins for personality and fun -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fef7ed; /* Warm cream background */
+            line-height: 1.6;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: #dc2626;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+            color: #b91c1c;
+        }
+        
+        .fun-bg {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #dc2626 100%);
+        }
+        
+        .fun-shadow {
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+        }
+        
+        .playful-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .playful-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-color: #fbbf24;
+        }
+        
+        .fun-button {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .fun-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+        }
+        
+        .fun-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .wavy-underline {
+            position: relative;
+        }
+        
+        .wavy-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,0 50,5 T100,5' stroke='%23fbbf24' stroke-width='3' fill='none'/%3E%3C/svg%3E") repeat-x;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            .fun-emoji {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-6 px-6 md:px-8 lg:px-12 rounded-b-3xl border-b-4 border-amber-300">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="logo">Tabli 🍽️</a>
+            <div>
+                <a href="#signup" class="fun-button">Let's Go! 🚀</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="fun-bg text-white py-20 md:py-28 lg:py-36 text-center rounded-3xl mx-4 mt-6 fun-shadow">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-8">
+                <span class="wavy-underline">Restaurant bookings</span><br>
+                made ridiculously simple! 🎉
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto font-medium">
+                Stop wrestling with complicated systems. Tabli makes reservations as easy as ordering your morning coffee ☕
+            </p>
+            <a href="#signup" class="bg-white text-red-600 hover:bg-gray-50 font-bold py-4 px-10 rounded-full shadow-xl text-xl transition duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1">
+                Start for just £50/month 💪
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 md:py-24 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                What makes us <span class="wavy-underline text-red-600">awesome?</span> 🌟
+            </h2>
+            <p class="text-xl text-gray-600 mb-16 max-w-2xl mx-auto">
+                We've packed everything you need into one delightfully simple package
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">📅</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Super Easy Bookings</h3>
+                    <p class="text-gray-600 text-lg">
+                        Your customers can book tables faster than they can say "table for two!" 
+                        Works perfectly on phones, tablets, whatever! 📱
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">👀</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Crystal Clear Dashboard</h3>
+                    <p class="text-gray-600 text-lg">
+                        See all your reservations at a glance. No squinting, no confusion, 
+                        just pure clarity that makes your day easier! ✨
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">🤖</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Smart Reminders</h3>
+                    <p class="text-gray-600 text-lg">
+                        We'll automatically remind your customers about their booking. 
+                        Fewer no-shows = happier you! 🎯
+                    </p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">🏠</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">You Own Everything</h3>
+                    <p class="text-gray-600 text-lg">
+                        Your data, your customers, your control. We're just here to make 
+                        your life easier, not complicate it! 💪
+                    </p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">⚡</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Ready in Minutes</h3>
+                    <p class="text-gray-600 text-lg">
+                        Seriously, you'll be taking bookings faster than you can make a cup of tea. 
+                        It's that simple! ☕
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="playful-card">
+                    <span class="fun-emoji">🤝</span>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">We've Got Your Back</h3>
+                    <p class="text-gray-600 text-lg">
+                        Stuck? Confused? Just email us! We're real humans who actually 
+                        want to help you succeed. Promise! 💌
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="bg-gradient-to-br from-amber-50 to-orange-100 py-20 md:py-24 px-4 rounded-3xl mx-4 shadow-lg border-4 border-amber-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                Ridiculously simple pricing 💰
+            </h2>
+            <p class="text-xl text-gray-600 mb-12">
+                One price. Everything included. No nasty surprises. Ever.
+            </p>
+            <div class="playful-card max-w-lg mx-auto border-4 border-red-200">
+                <span class="fun-emoji">🎯</span>
+                <h3 class="text-3xl font-bold text-red-600 mb-6">The Only Plan You Need</h3>
+                <p class="text-6xl font-extrabold text-gray-900 mb-8">
+                    £50<span class="text-2xl font-medium text-gray-500">/month</span>
+                </p>
+                <ul class="text-left text-lg text-gray-700 mb-10 space-y-4">
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">✅</span>
+                        <span><strong>Unlimited</strong> online bookings</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">✅</span>
+                        <span><strong>Zero</strong> per-booking fees</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">✅</span>
+                        <span><strong>All</strong> the features you need</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">✅</span>
+                        <span><strong>Cancel</strong> whenever you want</span>
+                    </li>
+                </ul>
+                <a href="#signup" class="fun-button text-xl py-4 px-10">
+                    Let's Do This! 🚀
+                </a>
+            </div>
+            <p class="mt-10 text-lg text-gray-600">
+                <strong>Free trial.</strong> No credit card needed. Start taking bookings in 5 minutes! ⏰
+            </p>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="signup" class="fun-bg text-white py-20 md:py-24 px-4 text-center rounded-3xl mx-4 my-6 fun-shadow">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                Ready to make your life easier? 🎉
+            </h2>
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-medium">
+                Join the smart restaurant owners who stopped stressing about bookings and started focusing on what they love: great food! 🍽️
+            </p>
+            <a href="#" class="bg-white text-red-600 hover:bg-gray-50 font-bold py-4 px-12 rounded-full shadow-xl text-2xl transition duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1">
+                Start Your Free Trial! 🚀
+            </a>
+            <p class="mt-8 text-lg opacity-90">
+                Seriously, it takes 2 minutes to set up. What are you waiting for? ⏰
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4 rounded-3xl mt-6 mx-4">
+        <div class="container mx-auto text-center">
+            <div class="mb-6">
+                <span class="text-3xl font-bold text-amber-400">Tabli 🍽️</span>
+            </div>
+            <p class="text-lg mb-6 text-gray-300">Making restaurant bookings ridiculously simple since 2025</p>
+            <div class="space-x-6 mb-6">
+                <a href="#" class="hover:text-amber-400 transition-colors duration-200 text-lg">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-400 transition-colors duration-200 text-lg">Terms of Service</a>
+                <a href="mailto:hello@tabli.com" class="hover:text-amber-400 transition-colors duration-200 text-lg">Say Hello! 👋</a>
+            </div>
+            <p class="text-gray-400">&copy; 2025 Samcop. All rights reserved. Made with ❤️ for restaurant owners.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
